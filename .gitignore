@@ -4,3 +4,6 @@ input.json
 # output
 raw.csv
 output.xlsx
+
+# cache
+__pycache__
