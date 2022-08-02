@@ -8,13 +8,13 @@ os.chdir(os.path.dirname(sys.argv[0]))
 
 # import and treat the json file
 def stats():
-    with open(r'input.json') as data_file:    
+    with open(r'inputs/stats_input.json') as data_file:    
         data = json.load(data_file)
     df = pd.json_normalize(data)
     df = df.T
     df = df.drop('DataVersion')
-    df.to_csv (r'raw.csv',header=['values'])
-    df = pd.read_csv (r'raw.csv')
+    df.to_csv (r'inputs/stats_raw.csv',header=['values'])
+    df = pd.read_csv (r'inputs/stats_raw.csv')
     df.rename(columns={'Unnamed: 0':'stats'},inplace=True)
 
     # create the necessary dataframes
@@ -90,7 +90,7 @@ def stats():
     df_general = df_general[['Mod','Statistic','Value']]
     
     # output the excel file
-    writer = pd.ExcelWriter(r'output.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(r'outputs/stats_output.xlsx', engine='xlsxwriter')
     df_general.to_excel(writer, sheet_name='General',index=False)
     df_block.to_excel(writer, sheet_name='Items',index=False)
     df_entity.to_excel(writer, sheet_name='Entities',index=False)

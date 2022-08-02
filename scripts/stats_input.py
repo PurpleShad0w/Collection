@@ -6,13 +6,13 @@ import json
 os.chdir(os.path.dirname(sys.argv[0]))
 
 def start():
-    files = os.listdir('.')
+    files = os.listdir('inputs')
     input = [file for file in files if file.endswith(".json")]
     for file in input:
-        os.rename(file, 'input.json')
+        os.rename(file, 'stats_input.json')
 
 def choose_version():
-    with open(r'input.json') as data_file:    
+    with open(r'inputs/stats_input.json') as data_file:    
         data = json.load(data_file)
         if "DataVersion" in str(data):
             return('above')

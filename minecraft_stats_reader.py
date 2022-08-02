@@ -1,6 +1,6 @@
 import os
 import sys
-import scripts.input as input
+import scripts.stats_input as input
 import scripts.stats_for_1_13_and_above as stats_for_1_13_and_above
 import scripts.stats_for_1_12_and_below as stats_for_1_12_and_below
 import warnings

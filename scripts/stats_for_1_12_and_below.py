@@ -8,10 +8,10 @@ os.chdir(os.path.dirname(sys.argv[0]))
 # import and treat the json file
 
 def stats():
-    df = pd.read_json (r'input.json',typ='series')
+    df = pd.read_json (r'inputs/stats_input.json',typ='series')
     df.to_frame('count')
-    df.to_csv (r'raw.csv',header=['values'])
-    df = pd.read_csv (r'raw.csv')
+    df.to_csv (r'inputs/stats_raw.csv',header=['values'])
+    df = pd.read_csv (r'inputs/stats_raw.csv')
     df.rename(columns={'Unnamed: 0':'stats'},inplace=True)
 
     # create the necessary dataframes
@@ -84,7 +84,7 @@ def stats():
     df_block = df_block[['Mod','Item','Mined','Broken','Crafted','Used','Picked Up','Dropped']]
     
     # output the excel file
-    writer = pd.ExcelWriter(r'output.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(r'outputs/stats_output.xlsx', engine='xlsxwriter')
     df_general.to_excel(writer, sheet_name='General')
     df_block.to_excel(writer, sheet_name='Items',index=False)
     df_entity.to_excel(writer, sheet_name='Entities')

@@ -1,9 +1,6 @@
-# input
-input.json
-
-# output
-raw.csv
-output.xlsx
+# I/O
+inputs
+outputs
 
 # cache
 __pycache__
