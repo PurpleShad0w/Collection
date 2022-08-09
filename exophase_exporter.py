@@ -35,7 +35,7 @@ def scroll_to_bottom(driver):
 
 user = 'PurpleShadow'
 
-df = pd.DataFrame(data={'Title':0,'Platforms':0,'Hours Played':0,'Achievements Obtained':0,'Achievements Total':0,'Completion Percentage':0,'Last Played':0},index=(0,1))
+df = pd.DataFrame(data={'Title':0,'Platforms':0,'Hours Played':0,'Achievements Obtained':0,'Achievements Total':0,'Completion Percentage':0,'Points':0,'Platinums':0,'Golds':0,'Silvers':0,'Bronzes':0,'Last Played':0},index=(0,1))
 
 # Load page
 driver = webdriver.Chrome()
@@ -66,8 +66,15 @@ while True:
         title_xpath_alt = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[2]/div/h3'
         platform_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[2]/div/div'
         hours_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[2]/div/span'
-        achiev_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[1]/div[1]'
+        achievements_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[1]/div[1]'
+        points_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[3]/span'
+        trophy_1_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[3]/div[1]/span'
+        trophy_2_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[3]/div[2]/span'
+        trophy_3_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[3]/div[3]/span'
+        trophy_4_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[4]/div[3]/div[4]/span'
         date_xpath = '//*[@id="app"]/div/div[2]/div[1]/ul/li['+str(i+1)+']/div[1]/div[5]/div'
+        trophies = {'bronze':-1,'silver':-1,'gold':-1,'platinum':-1}
+
         try:
             title = driver.find_element(By.XPATH,title_xpath).text
         except:
@@ -77,9 +84,33 @@ while True:
         except:
             hours = '0h'
         try:
-            achievements = driver.find_element(By.XPATH,achiev_xpath).text
+            achievements = driver.find_element(By.XPATH,achievements_xpath).text
         except:
             achievements = '0/0'
+        try:
+            points = driver.find_element(By.XPATH,points_xpath).text
+        except:
+            points = '0'
+        try:
+            trophies_class = driver.find_element(By.XPATH,trophy_1_xpath).get_attribute('class')
+            trophies[trophies_class] = driver.find_element(By.XPATH,trophy_1_xpath).text
+        except:
+            pass
+        try:
+            trophies_class = driver.find_element(By.XPATH,trophy_2_xpath).get_attribute('class')
+            trophies[trophies_class] = driver.find_element(By.XPATH,trophy_2_xpath).text
+        except:
+            pass
+        try:
+            trophies_class = driver.find_element(By.XPATH,trophy_3_xpath).get_attribute('class')
+            trophies[trophies_class] = driver.find_element(By.XPATH,trophy_3_xpath).text
+        except:
+            pass
+        try:
+            trophies_class = driver.find_element(By.XPATH,trophy_4_xpath).get_attribute('class')
+            trophies[trophies_class] = driver.find_element(By.XPATH,trophy_4_xpath).text
+        except:
+            pass
         try:
             date = driver.find_element(By.XPATH,date_xpath).text
         except:
@@ -96,6 +127,19 @@ while True:
             except:
                 break
     
+        # Assigning trophy values
+        for trophy in trophies:
+            if trophies[trophy] == -1:
+                trophies[trophy] = 0
+            elif trophies[trophy] == '' and trophy == 'platinum':
+                trophies[trophy] = 1
+            else:
+                continue
+        
+        # Calculating trophy points
+        if trophies['bronze'] != 0 or trophies['silver'] != 0 or trophies['gold'] != 0 or trophies['platinum'] != 0:
+            points = 15 * int(float(trophies['bronze'])) + 30 * int(float(trophies['silver'])) + 90 * int(float(trophies['gold'])) + 300 * int(float(trophies['platinum']))
+
         # Cleaning
         hours = hours[:-1]
         achiev_obtained, achiev_total = achievements.split('/')
@@ -104,7 +148,7 @@ while True:
         platforms = ' | '.join(platforms)
     
         # Append to dataframe
-        s = pd.Series({'Title':title,'Platforms':platforms,'Hours Played':hours,'Achievements Obtained':achiev_obtained,'Achievements Total':achiev_total,'Completion Percentage':0,'Last Played':date})
+        s = pd.Series({'Title':title,'Platforms':platforms,'Hours Played':hours,'Achievements Obtained':achiev_obtained,'Achievements Total':achiev_total,'Completion Percentage':0,'Points':points,'Platinums':trophies['platinum'],'Golds':trophies['gold'],'Silvers':trophies['silver'],'Bronzes':trophies['bronze'],'Last Played':date})
         df = df.append(s,ignore_index=True)
         i += 1
     
