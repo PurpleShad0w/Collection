@@ -35,7 +35,7 @@ def scroll_to_bottom(driver):
 
 user = 'PurpleShadow'
 
-df = pd.DataFrame(data={'Title':0,'Platforms':0,'Hours Played':0,'Achievements Obtained':0,'Achievements Total':0,'Completion Percentage':0,'Points':0,'Platinums':0,'Golds':0,'Silvers':0,'Bronzes':0,'Last Played':0},index=(0,1))
+df = pd.DataFrame(data={'Title':0,'Platforms':0,'Hours Played':0,'Obtained':0,'Total':0,'Completion':0,'Points':0,'Platinums':0,'Golds':0,'Silvers':0,'Bronzes':0,'Last Played':0},index=(0,1))
 
 # Load page
 driver = webdriver.Chrome()
@@ -148,7 +148,7 @@ while True:
         platforms = ' | '.join(platforms)
     
         # Append to dataframe
-        s = pd.Series({'Title':title,'Platforms':platforms,'Hours Played':hours,'Achievements Obtained':achiev_obtained,'Achievements Total':achiev_total,'Completion Percentage':0,'Points':points,'Platinums':trophies['platinum'],'Golds':trophies['gold'],'Silvers':trophies['silver'],'Bronzes':trophies['bronze'],'Last Played':date})
+        s = pd.Series({'Title':title,'Platforms':platforms,'Hours Played':hours,'Obtained':achiev_obtained,'Total':achiev_total,'Completion':0,'Points':points,'Platinums':trophies['platinum'],'Golds':trophies['gold'],'Silvers':trophies['silver'],'Bronzes':trophies['bronze'],'Last Played':date})
         df = df.append(s,ignore_index=True)
         i += 1
     
