@@ -1,6 +1,7 @@
 import os
 import sys
 import pandas as pd
+import numpy as np
 import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -8,13 +9,41 @@ os.chdir(os.path.dirname(sys.argv[0]))
 
 import struct
 from ReadWriteMemory import ReadWriteMemory
+import pymem
 
 rwm = ReadWriteMemory()
 
 process = rwm.get_process_by_name('MonsterHunterWorld.exe')
 process.open()
+pm = pymem.Pymem('MonsterHunterWorld.exe')
 
-capture_pointer = process.get_pointer(0x6DE24F24, offsets=[0x9BFA4F24])
+slot = 1    # change for corresponding save slot in game
+
+# process_id = hex(process.pid)
+# process_id = '140000000'
+# 140000000
+# rcx = int(process_id, 16) + int('0x5073E80', 16)
+# 145073E80
+rcx = pm.read_long(0x145073E80)
+rcx = rcx + int('0xA8', 16)
+rcx = process.read(int(hex(rcx), 16))
+rdx = '0x27E9F0'
+rdx = int(rdx, 16) * (slot-1)
+rcx = rcx + rdx
+rcx = rcx + int('0xF4EA8', 16)
+
+# script to find list of pointers and thus the static address, 0xBE4F28
+# pointers = []
+# for i in range(65535):
+#     h = hex(i)
+#     h = h + '4F28'
+#     if process.read(int(h, 16)) == 1:
+#         pointers.append(h)
+# np.savetxt('pointers.csv', pointers, delimiter=',', fmt='%s')
+
+rcx = rcx - 4
+
+capture_pointer = process.get_pointer(int(hex(rcx), 16))
 kill_pointer = process.get_pointer(capture_pointer+0x200)
 large_pointer = process.get_pointer(capture_pointer+0xC00)
 small_pointer = process.get_pointer(capture_pointer+0xE00)
