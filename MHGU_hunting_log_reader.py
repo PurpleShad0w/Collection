@@ -69,4 +69,5 @@ with open('inputs/system', mode='rb') as file:
         df = df.append(s, ignore_index=True)
 
 df = df[df['Name'] != 0]
+df = df[df['Type'] != 'Unknown']
 df.to_csv(r'outputs/MHGU_hunting_log.csv',encoding='utf-8',index=False)
