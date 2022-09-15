@@ -1,0 +1,38 @@
+mhgu_names = ["Rathian", "Gold Rathian", "Dreadqueen Rathian", "Rathalos", "Silver Rathalos", "Dreadking Rathalos", "Khezu", "Yian Kut-Ku", "Gypceros",
+    "Plesioth", "Kirin", "Velocidrome", "Gendrome", "Iodrome", "Cephadrome", "Yian Garuga", "Deadeye Yian Garuga", "Daimyo Hermitaur",
+    "Stonefist Hermitaur", "Shogun Ceanataur", "Blangonga", "Rajang", "Furious Rajang", "Kushala Daora", "Chameleos", "Teostra", "Bulldrome",
+    "Tigrex", "Grimclaw Tigrex", "Akantor", "Lavasioth", "Nargacuga", "Silverwind Nargacuga", "Ukanlos", "Deviljho", "Savage Deviljho",
+    "Uragaan", "Crystalbeard Uragaan", "Lagiacrus", "Royal Ludroth", "Agnaktor", "Alatreon", "Duramboros", "Nibelsnarf", "Zinogre",
+    "Thunderlord Zinogre", "Amatsu", "Arzuros", "Redhelm Arzuros", "Lagombi", "Snowbaron Lagombi", "Volvidon", "Brachydios", "Kecha Wacha",
+    "Tetsucabra", "Drilltusk Tetsucabra", "Zamtrios", "Najarala", "Seltas Queen", "Gore Magala", "Shagaru Magala", "Seltas", "Seregios",
+    "Malfestio", "Glavenus", "Hellblade Glavenus", "Astalos", "Mizutsune", "Gammoth", "Nakarkos", "Great Maccao", "Aptonoth",
+    "Apceros", "Kelbi", "Mosswine", "Hornetaur", "Vespoid", "Felyne", "Melynx", "Velociprey", "Genprey",
+    "Ioprey", "Cephalos", "Bullfango", "Popo", "Giaprey", "Anteka", "Remobra", "Hermitaur", "Ceanataur",
+    "Blango", "Rhenoplos", "Bnahabra", "Altaroth", "Jaggi", "Jaggia", "Ludroth", "Uroktor", "Slagtoth",
+    "Gargwa", "Zamite", "Konchu", "Maccao", "Larinoth", "Moofah", "", "", "",
+    "", "", "", "", "Basarios", "Gravios", "Diablos", "Bloodbath Diablos", "Lao-Shan Lung",
+    "Fatalis", "Crimson Fatalis", "White Fatalis", "Rustrazor Ceanataur", "Congalala", "Giadrome", "Barioth", "Barroth", "Raging Brachydios",
+    "Nerscylla", "Chaotic Gore Magala", "Nightcloak Malfestio", "Boltreaver Astalos", "Soulseer Mizutsune", "Elderfrost Gammoth", "Valstrax", "", "Ahtal-Ka",
+    "Great Thunderbug", "Conga"]
+
+mhwi_names = ['Anjanath','Rathalos','Aptonoth','Jagras','Zorah Magdaros','Mosswine','Gajau','Great Jagras','Kestodon (male)',
+    'Rathian','Pink Rathian','Azure Rathalos','Diablos','Black Diablos','Kirin','Behemoth','Kushala Daora','Lunastra',
+    'Teostra','Lavasioth','Deviljho','Barroth','Uragaan','Leshen','Pukei-Pukei','Nergigante',"Xeno'jiiva",
+    'Kulu-Ya-Ku','Tzitzi-Ya-Ku','Jyuratodus','Tobi-Kadachi','Paolumu','Legiana','Great Girros','Odogaron','Radobaan',
+    'Vaal Hazak','Dodogama','Kulve Taroth','Bazelgeuse','Apceros','Kelbi (male)','Kelbi (female)','Hornetaur','Vespoid',
+    'Mernos','Kestodon (female)','Raphinos','Shamos','Barnos','Girros','Ancient Leshen','Gastodon','Noios',
+    '','','Gajalaka','','','','','Tigrex','Nargacuga',
+    'Barioth','Savage Deviljho','Brachydios','Glavenus','Acidic Glavenus','Fulgur Anjanath','Coral Pukei-Pukei','Ruiner Nergigante','Viper Tobi-Kadachi',
+    'Nightshade Paolumu','Shrieking Legiana','Ebony Odogaron','Blackveil Vaal Hazak','Seething Bazelgeuse','Beotodus','Banbaro','Velkhana','Namielle',
+    'Shara Ishvalda','Popo','Anteka','Wulg','Cortos','Boaboa','Alatreon','Gold Rathian','Silver Rathalos',
+    'Yian Garuga','Rajang','Furious Rajang','Brute Tigrex','Zinogre','Stygian Zinogre','Raging Brachydios',"Safi'jiiva",
+    '','Scarred Yian Garuga','Frostfang Barioth','Fatalis']
+
+
+small_monsters = ['Altaroth', 'Anteka', 'Apceros', 'Aptonoth', 'Barnos', 'Blango', 'Boaboa', 'Bnahabra', 'Bullfango', 
+    'Ceanataur', 'Cephalos', 'Conga', 'Cortos', 'Felyne', 'Gajalaka', 'Gajau', 'Gargwa', 'Gastodon', 
+    'Genprey', 'Giaprey', 'Girros', 'Great Thunderbug', 'Grimalkyne', 'Hermitaur', 'Hornetaur', 'Ioprey', 'Jaggi', 
+    'Jaggia', 'Jagras', 'Kelbi', 'Kelbi (female)', 'Kelbi (male)', 'Kestodon', 'Kestodon (female)', 'Kestodon (male)', 'Konchu', 
+    'Larinoth', 'Ludroth', 'Maccao', 'Melynx', 'Mernos', 'Moofah', 'Mosswine', 'Noios', 'Popo', 
+    'Raphinos', 'Remobra', 'Rhenoplos', 'Shamos', 'Slagtoth', 'Uroktor', 'Velociprey', 'Vespoid', 'Wulg', 
+    'Zamite']

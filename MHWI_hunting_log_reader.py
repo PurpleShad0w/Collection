@@ -11,6 +11,8 @@ import struct
 from ReadWriteMemory import ReadWriteMemory
 import pymem
 
+import data.monsters as monsters
+
 rwm = ReadWriteMemory()
 
 process = rwm.get_process_by_name('MonsterHunterWorld.exe')
@@ -50,18 +52,8 @@ small_pointer = process.get_pointer(capture_pointer+0xE00)
 xp_pointer = process.get_pointer(capture_pointer+0x1000)
 level_pointer = process.get_pointer(capture_pointer+0x1200)
 
-names = ['Anjanath',
-        'Rathalos','Aptonoth','Jagras','Zorah Magdaros','Mosswine','Gajau','Great Jagras','Kestodon (male)','Rathian','Pink Rathian',
-        'Azure Rathalos','Diablos','Black Diablos','Kirin','Behemoth','Kushala Daora','Lunastra','Teostra','Lavasioth','Deviljho',
-        'Barroth','Uragaan','Leshen','Pukei-Pukei','Nergigante',"Xeno'jiiva",'Kulu-Ya-Ku','Tzitzi-Ya-Ku','Jyuratodus','Tobi-Kadachi',
-        'Paolumu','Legiana','Great Girros','Odogaron','Radobaan','Vaal Hazak','Dodogama','Kulve Taroth','Bazelgeuse','Apceros',
-        'Kelbi (male)','Kelbi (female)','Hornetaur','Vespoid','Mernos','Kestodon (female)','Raphinos','Shamos','Barnos','Girros',
-        'Ancient Leshen','Gastodon','Noios','','','Gajalaka','','','','',
-        'Tigrex','Nargacuga','Barioth','Savage Deviljho','Brachydios','Glavenus','Acidic Glavenus','Fulgur Anjanath','Coral Pukei-Pukei','Ruiner Nergigante',
-        'Viper Tobi-Kadachi','Nightshade Paolumu','Shrieking Legiana','Ebony Odogaron','Blackveil Vaal Hazak','Seething Bazelgeuse','Beotodus','Banbaro','Velkhana','Namielle',
-        'Shara Ishvalda','Popo','Anteka','Wulg','Cortos','Boaboa','Alatreon','Gold Rathian','Silver Rathalos','Yian Garuga',
-        'Rajang','Furious Rajang','Brute Tigrex','Zinogre','Stygian Zinogre','Raging Brachydios',"Safi'jiiva",'','Scarred Yian Garuga','Frostfang Barioth',
-        'Fatalis']
+names = monsters.mhwi_names
+small_monsters = monsters.small_monsters
 
 df = pd.DataFrame(data={'ID':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Large Crown %':0,'Small Crown %':0,'XP':0,'Research Level':0},index=(0,1))
 
@@ -79,9 +71,9 @@ for i in range(len(names)):
     xp = process.read(xp_pointer)
     level = process.read(level_pointer)
 
-    if kills > 0 and level == 0:
+    if names[i] in small_monsters:
         size = 'Small'
-    elif names[i] != '':
+    elif names[i] not in small_monsters and names[i] != '':
         size = 'Large'
     else:
         size = 'Unknown'
