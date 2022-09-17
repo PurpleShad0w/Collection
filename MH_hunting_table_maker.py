@@ -6,7 +6,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 os.chdir(os.path.dirname(sys.argv[0]))
 
-df = pd.DataFrame(data={'Type':0,'Name':0,'Total Hunted':0,'Large Crown %':0,'Small Crown %':0},index=(0,1))
+df = pd.DataFrame(data={'Size':0,'Name':0,'Total Hunted':0,'Large Crown %':0,'Small Crown %':0},index=(0,1))
 
 files = os.listdir('outputs')
 input = [file for file in files if file.endswith("hunting_log.csv")]
@@ -17,7 +17,7 @@ for file in input:
     df_log = pd.read_csv('outputs/'+file)
     names = df_log['Name'].tolist()
     for i in range(len(names)):
-        s = pd.Series({'Type':0,'Name':names[i],'Total Hunted':0,'Large Crown %':0,'Small Crown %':0})
+        s = pd.Series({'Size':0,'Name':names[i],'Total Hunted':0,'Large Crown %':0,'Small Crown %':0})
         df = df.append(s,ignore_index=True)
     file = file.replace('_hunting_log.csv',' Hunts')
     games.append(file)
@@ -33,14 +33,14 @@ for file in input:
     k += 1
 
     for i in range(len(df_log)):
-        size = df_log.iloc[i]['Type']
+        size = df_log.iloc[i]['Size']
         name = df_log.iloc[i]['Name']
         hunts = df_log.iloc[i]['Hunted']
         large_crown = df_log.iloc[i]['Large Crown %']
         small_crown = df_log.iloc[i]['Small Crown %']
 
         df.loc[(df['Name'] == name), [game]] = hunts
-        df.loc[(df['Name'] == name), ['Type']] = size
+        df.loc[(df['Name'] == name), ['Size']] = size
 
         if df.loc[(df['Name'] == name), ['Large Crown %']].to_numpy()[0][0] == 0:
             df.loc[(df['Name'] == name), ['Large Crown %']] = large_crown

@@ -55,7 +55,7 @@ level_pointer = process.get_pointer(capture_pointer+0x1200)
 names = monsters.mhwi_names
 small_monsters = monsters.small_monsters
 
-df = pd.DataFrame(data={'ID':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Large Crown %':0,'Small Crown %':0,'XP':0,'Research Level':0},index=(0,1))
+df = pd.DataFrame(data={'ID':0,'Size':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Large Crown %':0,'Small Crown %':0,'XP':0,'Research Level':0},index=(0,1))
 
 for i in range(len(names)):
     capture_pointer = process.get_pointer(capture_pointer + 0x4)
@@ -82,10 +82,10 @@ for i in range(len(names)):
 
     xp = struct.unpack("@f", struct.pack("@I", xp))[0]
 
-    s = pd.Series({'ID':i,'Type':size,'Name':names[i],'Hunted':hunts,'Captured':caps,'Killed':kills,'Large Crown %':large,'Small Crown %':small,'XP':xp,'Research Level':level})
+    s = pd.Series({'ID':i,'Size':size,'Name':names[i],'Hunted':hunts,'Captured':caps,'Killed':kills,'Large Crown %':large,'Small Crown %':small,'XP':xp,'Research Level':level})
     df = df.append(s,ignore_index=True)
 
 df = df[df['Name'] != 0]
-df = df[df['Type'] != 'Unknown']
+df = df[df['Size'] != 'Unknown']
 
 df.to_csv(r'outputs/MHWI_hunting_log.csv',encoding='utf-8',index=False)
