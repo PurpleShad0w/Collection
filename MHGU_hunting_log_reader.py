@@ -1,9 +1,9 @@
 import os
 import sys
 import pandas as pd
-import numpy as np
 import warnings
 import struct
+import shutil
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 os.chdir(os.path.dirname(sys.argv[0]))
@@ -18,6 +18,9 @@ names = monsters.mhgu_names
 small_monsters = monsters.small_monsters
 
 df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Large Crown %':0,'Small Crown %':0},index=(0,1))
+
+save_path = os.getenv('APPDATA')+'\\Ryujinx\\bis\\user\\save\\0000000000000007\\0\\system'
+shutil.copyfile(save_path, os.path.join(os.getcwd(), 'inputs\\system'))
 
 with open('inputs/system', mode='rb') as file:
     for i in range(len(names)):
