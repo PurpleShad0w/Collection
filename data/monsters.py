@@ -1,5 +1,14 @@
 # List of monsters by game
 
+mh4u_names = ['Seltas', 'Desert Seltas', 'Lagombi', 'Great Jaggi', 'Velocidrome', 'Gendrome', 'Iodrome', 'Cephadrome', 'Kecha Wacha',
+    'Ash Kecha Wacha', 'Tetsucabra', 'Berserk Tetsucabra', 'Zamtrios', 'Tigerstripe Zamtrios', 'Najarala', 'Tidal Najarala', 'Seltas Queen', 'Desert Seltas Queen',
+    'Nerscylla', 'Shrouded Nerscylla', 'Daimyo Hermitaur', 'Plum Daimyo Hermitaur', 'Gore Magala', 'Shagaru Magala', 'Seregios', 'Rathian', 'Pink Rathian',
+    'Gold Rathian', 'Rathalos', 'Azure Rathalos', 'Silver Rathalos', 'Zinogre', 'Stygian Zinogre', 'Diablos', 'Black Diablos', 'Monoblos',
+    'White Monoblos', 'Brachydios', 'Deviljho', 'Tigrex', 'Brute Tigrex', 'Molten Tigrex', 'Yian Kut-Ku', 'Blue Yian Kut-Ku', 'Yian Garuga',
+    'Gypceros', 'Purple Gypceros', 'Basarios', 'Ruby Basarios', 'Gravios', 'Black Gravios', 'Khezu', 'Red Khezu', 'Congalala',
+    'Emerald Congalala', 'Rajang', 'Kirin', 'Oroshi Kirin', 'Kushala Daora', 'Teostra', 'Chameleos', 'Akantor', 'Ukanlos',
+    "Dah'ren Mohran", 'Dalamadur', 'Shah Dalamadur', 'Gogmazios', 'Fatalis']
+
 mhgu_names = ["Rathian", "Gold Rathian", "Dreadqueen Rathian", "Rathalos", "Silver Rathalos", "Dreadking Rathalos", "Khezu", "Yian Kut-Ku", "Gypceros",
     "Plesioth", "Kirin", "Velocidrome", "Gendrome", "Iodrome", "Cephadrome", "Yian Garuga", "Deadeye Yian Garuga", "Daimyo Hermitaur",
     "Stonefist Hermitaur", "Shogun Ceanataur", "Blangonga", "Rajang", "Furious Rajang", "Kushala Daora", "Chameleos", "Teostra", "Bulldrome",
@@ -44,29 +53,30 @@ small_monsters = ['Altaroth', 'Anteka', 'Apceros', 'Aptonoth', 'Barnos', 'Blango
 
 # List of monsters by type
 
-type_amphibian = ['Tetsucabra', 'Drilltusk Tetsucabra', 'Zamtrios', 'Zamite']
+type_amphibian = ['Tetsucabra', 'Berserk Tetsucabra', 'Drilltusk Tetsucabra', 'Zamtrios', 'Tigerstripe Zamtrios', 'Zamite']
 
-type_bird_wyvern = ['Gargwa', 'Gendrome', 'Genprey', 'Giadrome', 'Giaprey', 'Great Maccao', 'Gypceros', 'Kulu-Ya-Ku', 'Malfestio', 
-    'Nightcloak Malfestio', 'Iodrome', 'Ioprey', 'Jaggi', 'Jaggia', 'Maccao', 'Pukei-Pukei', 'Coral Pukei-Pukei', 'Tzitzi-Ya-Ku', 
-    'Velocidrome', 'Velociprey', 'Yian Garuga', 'Deadeye Yian Garuga', 'Scarred Yian Garuga', 'Yian Kut-Ku']
+type_bird_wyvern = ['Gargwa', 'Gendrome', 'Genprey', 'Giadrome', 'Giaprey', 'Great Jaggi', 'Great Maccao', 'Gypceros', 'Purple Gypceros', 
+    'Kulu-Ya-Ku', 'Malfestio', 'Nightcloak Malfestio', 'Iodrome', 'Ioprey', 'Jaggi', 'Jaggia', 'Maccao', 'Pukei-Pukei', 
+    'Coral Pukei-Pukei', 'Tzitzi-Ya-Ku', 'Velocidrome', 'Velociprey', 'Yian Garuga', 'Deadeye Yian Garuga', 'Scarred Yian Garuga', 'Yian Kut-Ku', 'Blue Yian Kut-Ku']
 
 type_brute_wyvern = ['Anjanath', 'Fulgur Anjanath', 'Banbaro', 'Barroth', 'Brachydios', 'Raging Brachydios', 'Deviljho', 'Savage Deviljho', 'Duramboros', 
     'Glavenus', 'Acidic Glavenus', 'Hellblade Glavenus', 'Radobaan', 'Uragaan', 'Crystalbeard Uragaan']
 
-type_carapaceon = ['Ceanataur', 'Daimyo Hermitaur', 'Stonefist Hermitaur', 'Hermitaur', 'Shogun Ceanataur', 'Rustrazor Ceanataur']
+type_carapaceon = ['Ceanataur', 'Daimyo Hermitaur', 'Plum Daimyo Hermitaur', 'Stonefist Hermitaur', 'Hermitaur', 'Shogun Ceanataur', 'Rustrazor Ceanataur']
 
-type_fanged_beast = ['Arzuros', 'Redhelm Arzuros', 'Blango', 'Blangonga', 'Bullfango', 'Bulldrome', 'Conga', 'Congalala', 'Gammoth',
-    'Elderfrost Gammoth', 'Kecha Wacha', 'Lagombi', 'Snowbaron Lagombi', 'Rajang', 'Furious Rajang', 'Volvidon']
+type_fanged_beast = ['Arzuros', 'Redhelm Arzuros', 'Blango', 'Blangonga', 'Bullfango', 'Bulldrome', 'Conga', 'Congalala', 'Emerald Congalala', 
+    'Gammoth', 'Elderfrost Gammoth', 'Kecha Wacha', 'Ash Kecha Wacha', 'Lagombi', 'Snowbaron Lagombi', 'Rajang', 'Furious Rajang', 'Volvidon']
 
 type_fanged_wyvern = ['Dodogama', 'Girros', 'Great Girros', 'Great Jagras', 'Jagras', 'Odogaron', 'Ebony Odogaron', 'Shamos', 'Tobi-Kadachi', 
     'Viper Tobi-Kadachi', 'Wulg', 'Zinogre', 'Stygian Zinogre', 'Thunderlord Zinogre']
 
 type_fish = ['Gajau']
 
-type_flying_wyvern = ['Akantor', 'Astalos', 'Boltreaver Astalos', 'Barioth', 'Frostfang Barioth', 'Basarios', 'Bazelgeuse', 'Seething Bazelgeuse', 'Diablos', 
-    'Black Diablos', 'Bloodbath Diablos', 'Gravios', 'Khezu', 'Legiana', 'Shrieking Legiana', 'Nargacuga', 'Silverwind Nargacuga', 'Paolumu', 
-    'Nightshade Paolumu', 'Rathalos', 'Azure Rathalos', 'Dreadking Rathalos', 'Silver Rathalos', 'Rathian', 'Dreadqueen Rathian', 'Gold Rathian', 'Pink Rathian', 
-    'Seregios', 'Tigrex', 'Brute Tigrex', 'Grimclaw Tigrex', 'Ukanlos']
+type_flying_wyvern = ['Akantor', 'Astalos', 'Boltreaver Astalos', 'Barioth', 'Frostfang Barioth', 'Basarios', 'Ruby Basarios', 'Bazelgeuse', 'Seething Bazelgeuse', 
+    'Diablos', 'Black Diablos', 'Bloodbath Diablos', 'Gravios', 'Black Gravios', 'Khezu', 'Red Khezu', 'Legiana', 'Shrieking Legiana', 
+    'Monoblos', 'White Monoblos', 'Nargacuga', 'Silverwind Nargacuga', 'Paolumu', 'Nightshade Paolumu', 'Rathalos', 'Azure Rathalos', 'Dreadking Rathalos', 
+    'Silver Rathalos', 'Rathian', 'Dreadqueen Rathian', 'Gold Rathian', 'Pink Rathian', 'Seregios', 'Tigrex', 'Brute Tigrex', 'Grimclaw Tigrex', 
+    'Molten Tigrex', 'Ukanlos']
 
 type_herbivore = ['Anteka', 'Apceros', 'Aptonoth', 'Gastodon', 'Kelbi', 'Kelbi (female)', 'Kelbi (male)', 'Kestodon', 'Kestodon (female)', 
     'Kestodon (male)', 'Larinoth', 'Mosswine', 'Moofah', 'Popo', 'Rhenoplos', 'Slagtoth']
@@ -75,21 +85,23 @@ type_leviathan = ['Agnaktor', 'Lagiacrus', 'Ludroth', 'Mizutsune', 'Soulseer Miz
 
 type_lynian = ['Boaboa', 'Felyne', 'Gajalaka', 'Grimalkyne', 'Melynx']
 
-type_neopteron = ['Altaroth', 'Ahtal-Ka', 'Bnahabra', 'Hornetaur', 'Great Thunderbug', 'Konchu', 'Seltas', 'Seltas Queen', 'Vespoid']
+type_neopteron = ['Altaroth', 'Ahtal-Ka', 'Bnahabra', 'Hornetaur', 'Great Thunderbug', 'Konchu', 'Seltas', 'Desert Seltas', 'Seltas Queen', 
+    'Desert Seltas Queen', 'Vespoid']
 
-type_piscine_wyvern = ['Beotodus', 'Cephalos', 'Cephadrome', 'Jyuratodus', 'Lavasioth', 'Plesioth']
+type_piscine_wyvern = ['Beotodus', 'Cephalos', 'Cephadrome', 'Delex', 'Jyuratodus', 'Lavasioth', 'Plesioth']
 
 type_relict = ['Ancient Leshen', 'Leshen']
 
-type_snake_wyvern = ['Najarala', 'Remobra']
+type_snake_wyvern = ['Najarala', 'Tidal Najarala', 'Remobra']
 
-type_temnoceran = ['Nerscylla']
+type_temnoceran = ['Nerscylla', 'Shrouded Nerscylla']
 
 type_wingdrake = ['Barnos', 'Cortos', 'Mernos', 'Noios', 'Raphinos']
 
-type_elder_dragon = ['Alatreon', 'Amatsu', 'Behemoth', 'Chameleos', 'Fatalis', 'Crimson Fatalis', 'White Fatalis', 'Kirin', 'Kulve Taroth', 
-    'Kushala Daora', 'Lao-Shan Lung', 'Lunastra', 'Nakarkos', 'Namielle', 'Nergigante', 'Ruiner Nergigante', "Safi'jiiva", 'Shagaru Magala', 
-    'Shara Ishvalda', 'Teostra', 'Vaal Hazak', 'Blackveil Vaal Hazak', 'Valstrax', 'Velkhana', "Xeno'jiiva", 'Zorah Magdaros']
+type_elder_dragon = ['Alatreon', 'Amatsu', 'Behemoth', 'Chameleos', "Dah'ren Mohran", 'Dalamadur', 'Shah Dalamadur', 'Fatalis', 'Crimson Fatalis', 
+    'White Fatalis', 'Gogmazios', 'Kirin', 'Oroshi Kirin', 'Kulve Taroth', 'Kushala Daora', 'Lao-Shan Lung', 'Lunastra', 'Nakarkos', 
+    'Namielle', 'Nergigante', 'Ruiner Nergigante', "Safi'jiiva", 'Shagaru Magala', 'Shara Ishvalda', 'Teostra', 'Vaal Hazak', 'Blackveil Vaal Hazak', 
+    'Valstrax', 'Velkhana', "Xeno'jiiva", 'Zorah Magdaros']
 
 type_question_mark = ['Gore Magala', 'Chaotic Gore Magala']
 
