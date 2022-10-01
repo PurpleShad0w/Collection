@@ -131,6 +131,10 @@ mhgu_sizes = {'default': [115,123,90], 'Redhelm Arzuros': [105,109,96], 'Snowbar
     'Rajang': [117,123,90], 'Furious Rajang': [117,123,90], 'Deviljho': [120,128,90], 'Savage Deviljho': [120,128,90],
     'Kushala Daora': [117,123,90], 'Chameleos': [117,123,90], 'Teostra': [117,123,90]}
 
+mhwi_sizes = {'default': [115,123,90], 'Pukei-Pukei': [110,120,90], 'Tobi-Kadachi': [110,120,90], 'Anjanath': [110,120,90],
+    'Radobaan': [110,120,90], 'Deviljho': [110,120,90], 'Uragaan': [110,120,90], 'Viper Tobi-Kadachi': [110,120,90],
+    'Coral Pukei-Pukei': [110,120,90], 'Glavenus': [110,120,90], 'Acidic Glavenus': [110,120,90], 'Fulgur Anjanath': [110,120,90],
+    'Savage Deviljho': [114,120,99], 'Rajang': [111,118,90], 'Furious Rajang': [111,118,90]}
 
 # Function for finding the monster crown size
 
