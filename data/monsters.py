@@ -105,16 +105,55 @@ type_elder_dragon = ['Alatreon', 'Amatsu', 'Behemoth', 'Chameleos', "Dah'ren Moh
 
 type_question_mark = ['Gore Magala', 'Chaotic Gore Magala']
 
-
-# Function for finding the monster type
-
-monster_types = {'Amphibian': type_amphibian, 'Bird Wyvern': type_bird_wyvern, 'Brute Wyvern': type_brute_wyvern, 'Carapaceon': type_carapaceon, 'Fanged Beast': type_fanged_beast, 
+monster_types = {
+    'Amphibian': type_amphibian, 'Bird Wyvern': type_bird_wyvern, 'Brute Wyvern': type_brute_wyvern, 'Carapaceon': type_carapaceon, 'Fanged Beast': type_fanged_beast, 
     'Fanged Wyvern': type_fanged_wyvern, 'Fish': type_fish, 'Flying Wyvern': type_flying_wyvern, 'Herbivore': type_herbivore, 'Leviathan': type_leviathan, 
     'Lynian': type_lynian, 'Neopteron': type_neopteron, 'Piscine Wyvern': type_piscine_wyvern, 'Relict': type_relict, 'Snake Wyvern': type_snake_wyvern, 
     'Temnoceran': type_temnoceran, 'Wingdrake': type_wingdrake, 'Elder Dragon': type_elder_dragon, '???': type_question_mark}
+
+# Function for finding the monster type
 
 def find_monster_type(monster_name):
     for name, monster_type in monster_types.items():
         if monster_name in monster_type:
             return name
     return 'Unknown'
+
+
+# List of monster crown sizes
+
+mhgu_sizes = {'default': [115,123,90], 'Redhelm Arzuros': [105,109,96], 'Snowbaron Lagombi': [117,123,97], 'Drilltusk Tetsucabra': [105,109,96], 
+    'Stonefist Hermitaur': [114,119,97], 'Nightcloak Malfestio': [117,123,97], 'Gold Rathian': [117,123,97], 'Dreadqueen Rathian': [105,109,96],
+    'Silver Rathalos': [117,123,97], 'Dreadking Rathalos': [105,109,96], 'Rustrazor Ceanataur': [110,114,96], 'Silverwind Nargacuga': [117,123,97],
+    'Deadeye Yian Garuga': [117,123,97], 'Crystalbeard Uragaan': [105,109,96], 'Thunderlord Zinogre': [117,123,97], 'Soulseer Mizutsune': [110,114,97],
+    'Boltreaver Astalos': [105,109,96], 'Elderfrost Gammoth': [110,114,97], 'Hellblade Glavenus': [114,119,97], 'Grimclaw Tigrex': [105,109,96],
+    'Bloodbath Diablos': [110,114,96], 'Kirin': [117,123,90], 'Shagaru Magala': [117,123,90], 'Valstrax': [112,118,90],
+    'Rajang': [117,123,90], 'Furious Rajang': [117,123,90], 'Deviljho': [120,128,90], 'Savage Deviljho': [120,128,90],
+    'Kushala Daora': [117,123,90], 'Chameleos': [117,123,90], 'Teostra': [117,123,90]}
+
+
+# Function for finding the monster crown size
+
+def find_monster_crowns(monster_name, size_list, size_big, size_small):
+    if monster_name in size_list.keys():
+        threshold_silver = size_list[monster_name][0]
+        threshold_gold = size_list[monster_name][1]
+        threshold_small = size_list[monster_name][2]
+    else:
+        threshold_silver = size_list['default'][0]
+        threshold_gold = size_list['default'][1]
+        threshold_small = size_list['default'][2]
+    
+    if size_big >= threshold_gold:
+        big_crown = '👑'
+    elif size_big >= threshold_silver:
+        big_crown = '🥈'
+    else:
+        big_crown = ''
+
+    if size_small <= threshold_small and size_small != 0:
+        small_crown = '👑'
+    else:
+        small_crown = ''
+    
+    return big_crown, small_crown

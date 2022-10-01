@@ -56,16 +56,16 @@ with open('inputs/user1.bin', mode='rb') as file:
         hunts = kills[i] + caps[i]
         
         if big_crown[i] == 1:
-            big_crown[i] = 'Silver'
+            big_crown[i] = '🥈' 
         elif big_crown[i] == 2:
-            big_crown[i] = 'Gold'
+            big_crown[i] = '👑'
         else:
-            big_crown[i] = 'None'
+            big_crown[i] = ''
         
         if small_crown[i] == 1:
-            small_crown[i] = 'Gold'
+            small_crown[i] = '👑'
         else:
-            small_crown[i] = 'None'
+            small_crown[i] = ''
 
         monster_type = monsters.find_monster_type(names[i])
 
