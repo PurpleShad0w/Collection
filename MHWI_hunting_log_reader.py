@@ -55,7 +55,7 @@ level_pointer = process.get_pointer(capture_pointer+0x1200)
 names = monsters.mhwi_names
 small_monsters = monsters.small_monsters
 
-df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0,'XP':0,'Research Level':0},index=(0,1))
+df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0,'XP':0,'Research Level':0},index=(0,1))
 
 for i in range(len(names)):
     capture_pointer = process.get_pointer(capture_pointer + 0x4)
@@ -82,11 +82,13 @@ for i in range(len(names)):
 
     mtype = monsters.find_monster_type(names[i])
 
+    mvar = monsters.find_monster_variation(names[i])
+
     hunts = caps + kills
 
     xp = struct.unpack("@f", struct.pack("@I", xp))[0]
 
-    s = pd.Series({'ID':i,'Size':size,'Type':mtype,'Name':names[i],'Hunted':hunts,'Captured':caps,'Killed':kills,'Big Crown':big_crown,'Small Crown':small_crown,'Largest Size':large,'Smallest Size':small,'XP':xp,'Research Level':level})
+    s = pd.Series({'ID':i,'Size':size,'Type':mtype,'Variation':mvar,'Name':names[i],'Hunted':hunts,'Captured':caps,'Killed':kills,'Big Crown':big_crown,'Small Crown':small_crown,'Largest Size':large,'Smallest Size':small,'XP':xp,'Research Level':level})
     df = df.append(s,ignore_index=True)
 
 df = df[df['Name'] != 0]

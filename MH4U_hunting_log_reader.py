@@ -18,7 +18,7 @@ kills, caps, size_small, size_big, big_crown, small_crown = [None] * 68, [None] 
 
 names = monsters.mh4u_names
 
-df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
+df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 save_path = os.getenv('APPDATA')+'\\Citra\\sdmc\\Nintendo 3DS\\00000000000000000000000000000000\\00000000000000000000000000000000\\title\\00040000\\00126300\\data\\00000001\\user1'
 shutil.copyfile(save_path, os.path.join(os.getcwd(), 'inputs\\user1'))
@@ -69,7 +69,9 @@ with open('inputs/user1.bin', mode='rb') as file:
 
         monster_type = monsters.find_monster_type(names[i])
 
-        s = pd.Series({'ID':i,'Size':'Large','Type':monster_type,'Name':names[i],'Hunted':hunts,'Captured':caps[i],'Killed':kills[i],'Big Crown':big_crown[i],'Small Crown':small_crown[i],'Largest Size':size_big[i],'Smallest Size':size_small[i]})
+        monster_var = monsters.find_monster_variation(names[i])
+
+        s = pd.Series({'ID':i,'Size':'Large','Type':monster_type,'Variation':monster_var,'Name':names[i],'Hunted':hunts,'Captured':caps[i],'Killed':kills[i],'Big Crown':big_crown[i],'Small Crown':small_crown[i],'Largest Size':size_big[i],'Smallest Size':size_small[i]})
         df = df.append(s, ignore_index=True)
 
 df = df[df['Name'] != 0]

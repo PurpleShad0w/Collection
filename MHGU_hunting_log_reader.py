@@ -17,7 +17,7 @@ kills, caps, size_small, size_big = [None] * 137, [None] * 137, [None] * 137, [N
 names = monsters.mhgu_names
 small_monsters = monsters.small_monsters
 
-df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
+df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 save_path = os.getenv('APPDATA')+'\\Ryujinx\\bis\\user\\save\\0000000000000007\\0\\system'
 shutil.copyfile(save_path, os.path.join(os.getcwd(), 'inputs\\system'))
@@ -53,7 +53,9 @@ with open('inputs/system', mode='rb') as file:
 
         monster_type = monsters.find_monster_type(names[i])
 
-        s = pd.Series({'ID':i,'Size':size,'Type':monster_type,'Name':names[i],'Hunted':hunts,'Captured':caps[i],'Killed':kills[i],'Big Crown':big_crown,'Small Crown':small_crown,'Largest Size':size_big[i],'Smallest Size':size_small[i]})
+        monster_var = monsters.find_monster_variation(names[i])
+
+        s = pd.Series({'ID':i,'Size':size,'Type':monster_type,'Variation':monster_var,'Name':names[i],'Hunted':hunts,'Captured':caps[i],'Killed':kills[i],'Big Crown':big_crown,'Small Crown':small_crown,'Largest Size':size_big[i],'Smallest Size':size_small[i]})
         df = df.append(s, ignore_index=True)
 
 df = df[df['Name'] != 0]

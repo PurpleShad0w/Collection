@@ -6,7 +6,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 os.chdir(os.path.dirname(sys.argv[0]))
 
-df = pd.DataFrame(data={'Size':0,'Type':0,'Name':0,'Total':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
+df = pd.DataFrame(data={'Size':0,'Type':0,'Variation':0,'Name':0,'Total':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 files = os.listdir('outputs')
 input = [file for file in files if file.endswith("hunting_log.csv")]
@@ -17,7 +17,7 @@ for file in input:
     df_log = pd.read_csv('outputs/'+file)
     names = df_log['Name'].tolist()
     for i in range(len(names)):
-        s = pd.Series({'Size':0,'Type':0,'Name':names[i],'Total':0,'Largest Size':0,'Smallest Size':0})
+        s = pd.Series({'Size':0,'Type':0,'Variation':0,'Name':names[i],'Total':0,'Largest Size':0,'Smallest Size':0})
         df = df.append(s,ignore_index=True)
     file = file.replace('_hunting_log.csv','')
     games.append(file)
@@ -25,7 +25,7 @@ for file in input:
 df = df.drop_duplicates()
 
 for i in range(len(games)):
-    df.insert(i+4,games[i],0)
+    df.insert(i+5,games[i],0)
 
 for file in input:
     df_log = pd.read_csv('outputs/'+file)
@@ -35,6 +35,7 @@ for file in input:
     for i in range(len(df_log)):
         size = df_log.iloc[i]['Size']
         monster_type = df_log.iloc[i]['Type']
+        monster_var = df_log.iloc[i]['Variation']
         name = df_log.iloc[i]['Name']
         hunts = df_log.iloc[i]['Hunted']
         size_big = df_log.iloc[i]['Largest Size']
@@ -45,6 +46,7 @@ for file in input:
         df.loc[(df['Name'] == name), [game]] = hunts
         df.loc[(df['Name'] == name), ['Size']] = size
         df.loc[(df['Name'] == name), ['Type']] = monster_type
+        df.loc[(df['Name'] == name), ['Variation']] = monster_var
 
         if df.loc[(df['Name'] == name), ['Largest Size']].to_numpy()[0][0] == 0:
             df.loc[(df['Name'] == name), ['Largest Size']] = size_big
