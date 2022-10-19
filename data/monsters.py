@@ -174,7 +174,7 @@ def find_monster_variation(monster_name):
     for name, monster_variation in monster_variations.items():
         if monster_name in monster_variation:
             return name
-    return 'Original'
+    return ''
 
 # List of monster crown sizes
 
