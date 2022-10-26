@@ -15,7 +15,7 @@ pm = pymem.Pymem('MonsterHunterRise.exe')
 pointer = pm.read_long(0x140000000 + 0xF128600)
 pointer = pm.read_long(pointer + 0x70)
 pointer = pm.read_long(pointer + 0x130)
-pointer = pointer + 0x20
+pointer += 0x20
 
 hunt_pointer = pointer - 0x4
 capture_pointer = hunt_pointer + 0x420
@@ -27,9 +27,9 @@ small_monsters = monsters.small_monsters
 df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Anomalies':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 for i in range(len(names)):
-    hunt_pointer = hunt_pointer + 0x4
-    capture_pointer = capture_pointer + 0x4
-    anomaly_pointer = anomaly_pointer + 0x4
+    hunt_pointer += 0x4
+    capture_pointer += 0x4
+    anomaly_pointer += 0x4
 
     hunts = pm.read_int(hunt_pointer)
     caps = pm.read_int(capture_pointer)
