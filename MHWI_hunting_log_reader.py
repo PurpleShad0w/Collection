@@ -17,7 +17,7 @@ slot = 1    # change for corresponding save slot in game
 
 rcx = pm.read_long(0x140000000 + 0x5073E80)
 rcx = rcx + 0xA8
-rcx = pm.read_long(rcx)
+rcx = pm.read_longlong(rcx)
 rdx = 0x27E9F0 * (slot-1)
 rcx = rcx + rdx
 rcx = rcx + 0xF4EA8
