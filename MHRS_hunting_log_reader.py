@@ -12,7 +12,7 @@ import data.monsters as monsters
 
 pm = pymem.Pymem('MonsterHunterRise.exe')
 
-pointer = pm.read_long(0x140000000 + 0xF128600)
+pointer = pm.read_long(0x140000000 + 0xF4B9778)
 pointer = pm.read_long(pointer + 0x70)
 pointer = pm.read_long(pointer + 0x130)
 pointer += 0x20

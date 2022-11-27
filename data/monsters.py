@@ -54,8 +54,8 @@ mhrs_names = [
     'Bombadgy', 'Izuchi', '', 'Rachnoid', 'Gold Rathian', 'Silver Rathalos', 'Daimyo Hermitaur', 'Shogun Ceanataur', 'Furious Rajang', 
     'Lucent Nargacuga', 'Gore Magala', 'Shagaru Magala', 'Seregios', 'Astalos', 'Violet Mizutsune', 'Scorned Magnamalo', 'Blood Orange Bishaten', 'Aurora Somnacanth', 
     'Pyre Rakna-Kadaki', 'Magma Almudron', 'Seething Bazelgeuse', 'Malzeno', 'Lunagaron', 'Garangolm', 'Gaismagorm', 'Espinas', 'Flaming Espinas', 
-    'Hornetaur', 'Vespoid', 'Velociprey', 'Hermitaur', 'Ceanataur', 'Pyrantula', 'Gowngoat', 'Boggi', '', 
-    'Risen Chameleos'
+    'Hornetaur', 'Vespoid', 'Velociprey', 'Hermitaur', 'Ceanataur', 'Pyrantula', 'Gowngoat', 'Boggi', 'Risen Kushala Daora', 
+    'Risen Chameleos','Risen Teostra','','','','Chaotic Gore Magala'
 ]
 
 # List of monsters by size
@@ -141,10 +141,10 @@ type_wingdrake = [
 
 type_elder_dragon = [
     'Alatreon', 'Amatsu', 'Behemoth', 'Chameleos', 'Risen Chameleos', "Dah'ren Mohran", 'Dalamadur', 'Shah Dalamadur', 'Fatalis', 
-    'Crimson Fatalis', 'White Fatalis', 'Gaismagorm', 'Gogmazios', 'Kirin', 'Oroshi Kirin', 'Kulve Taroth', 'Kushala Daora', 'Lao-Shan Lung', 
-    'Lunastra', 'Malzeno', 'Nakarkos', 'Namielle', 'Nergigante', 'Ruiner Nergigante', "Safi'jiiva", 'Shagaru Magala', 'Shara Ishvalda', 
-    'Teostra', 'Thunder Serpent Narwa', 'Narwa the Allmother', 'Vaal Hazak', 'Blackveil Vaal Hazak', 'Valstrax', 'Crimson Glow Valstrax', 'Velkhana', 
-    'Wind Serpent Ibushi', "Xeno'jiiva", 'Zorah Magdaros']
+    'Crimson Fatalis', 'White Fatalis', 'Gaismagorm', 'Gogmazios', 'Kirin', 'Oroshi Kirin', 'Kulve Taroth', 'Kushala Daora', 'Risen Kushala Daora',
+    'Lao-Shan Lung', 'Lunastra', 'Malzeno', 'Nakarkos', 'Namielle', 'Nergigante', 'Ruiner Nergigante', "Safi'jiiva", 'Shagaru Magala',
+    'Shara Ishvalda', 'Teostra', 'Risen Teostra', 'Thunder Serpent Narwa', 'Narwa the Allmother', 'Vaal Hazak', 'Blackveil Vaal Hazak', 'Valstrax',
+    'Crimson Glow Valstrax', 'Velkhana', 'Wind Serpent Ibushi', "Xeno'jiiva", 'Zorah Magdaros']
 
 type_question_mark = [
     'Gore Magala', 'Chaotic Gore Magala']
@@ -179,7 +179,7 @@ var_rarespecies = [
     'Violet Mizutsune', 'Lucent Nargacuga', 'Silver Rathalos', 'Gold Rathian', 'Molten Tigrex']
 
 var_risen = [
-    'Risen Chameleos']
+    'Risen Chameleos', 'Risen Kushala Daora', 'Risen Teostra']
 
 var_subspecies = [
     'Magma Almudron', 'Fulgur Anjanath', 'Ruby Basarios', 'Blood Orange Bishaten', 'Emerald Congalala', 'Plum Daimyo Hermitaur', 'Shah Dalamadur', 
