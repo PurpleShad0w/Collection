@@ -1,6 +1,7 @@
 # I/O
 inputs
 outputs
+steam_api_key.txt
 
 # cache
 __pycache__
