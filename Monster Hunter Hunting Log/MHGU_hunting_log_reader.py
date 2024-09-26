@@ -20,9 +20,9 @@ small_monsters = monsters.small_monsters
 df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 save_path = os.getenv('APPDATA')+'\\Ryujinx\\bis\\user\\save\\0000000000000007\\0\\system'
-shutil.copyfile(save_path, os.path.join(os.getcwd(), 'inputs\\system'))
+shutil.copyfile(save_path, os.path.join(os.getcwd(), 'system'))
 
-with open('inputs/system', mode='rb') as file:
+with open('system', mode='rb') as file:
     for i in range(len(names)):
         offset = int(offset_hex[0], 16) + i*2
         file.seek(offset)
@@ -60,4 +60,4 @@ with open('inputs/system', mode='rb') as file:
 
 df = df[df['Name'] != 0]
 df = df[df['Size'] != 'Unknown']
-df.to_csv(r'outputs/MHGU_hunting_log.csv',encoding='utf-8',index=False)
+df.to_csv(r'logs/mhgu.csv',encoding='utf-8',index=False)

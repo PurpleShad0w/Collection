@@ -21,13 +21,13 @@ names = monsters.mh4u_names
 df = pd.DataFrame(data={'ID':0,'Size':0,'Type':0,'Variation':0,'Name':0,'Hunted':0,'Captured':0,'Killed':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
 save_path = os.getenv('APPDATA')+'\\Citra\\sdmc\\Nintendo 3DS\\00000000000000000000000000000000\\00000000000000000000000000000000\\title\\00040000\\00126300\\data\\00000001\\user1'
-shutil.copyfile(save_path, os.path.join(os.getcwd(), 'inputs\\user1'))
+shutil.copyfile(save_path, os.path.join(os.getcwd(), 'user1'))
 
-args = Namespace(mode='d', inputfile='inputs/user1', outputfile='inputs/user1.bin')
+args = Namespace(mode='d', inputfile='user1', outputfile='user1.bin')
 sc = mhef.n3ds.SavedataCipher(mhef.n3ds.MH4G_NA)
 sc.decrypt_file(args.inputfile, args.outputfile)
 
-with open('inputs/user1.bin', mode='rb') as file:
+with open('user1.bin', mode='rb') as file:
     for i in range(len(names)):
         offset = int(offset_hex[0], 16) + i*10
         file.seek(offset)
@@ -75,4 +75,4 @@ with open('inputs/user1.bin', mode='rb') as file:
         df = df.append(s, ignore_index=True)
 
 df = df[df['Name'] != 0]
-df.to_csv(r'outputs/MH4U_hunting_log.csv',encoding='utf-8',index=False)
+df.to_csv(r'logs/mh4u.csv',encoding='utf-8',index=False)

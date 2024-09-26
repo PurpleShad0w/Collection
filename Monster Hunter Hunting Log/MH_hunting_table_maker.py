@@ -8,18 +8,18 @@ os.chdir(os.path.dirname(sys.argv[0]))
 
 df = pd.DataFrame(data={'Size':0,'Type':0,'Variation':0,'Name':0,'Total':0,'Big Crown':0,'Small Crown':0,'Largest Size':0,'Smallest Size':0},index=(0,1))
 
-files = os.listdir('outputs')
-input = [file for file in files if file.endswith("hunting_log.csv")]
+files = os.listdir('logs')
+input = [file for file in files if not file.endswith("table.csv")]
 games = []
 k = 0
 
 for file in input:
-    df_log = pd.read_csv('outputs/'+file)
+    df_log = pd.read_csv('logs/'+file)
     names = df_log['Name'].tolist()
     for i in range(len(names)):
         s = pd.Series({'Size':0,'Type':0,'Variation':0,'Name':names[i],'Total':0,'Largest Size':0,'Smallest Size':0})
         df = df.append(s,ignore_index=True)
-    file = file.replace('_hunting_log.csv','')
+    file = file.replace('_log.csv','')
     games.append(file)
 
 df = df.drop_duplicates()
@@ -28,7 +28,7 @@ for i in range(len(games)):
     df.insert(i+5,games[i],0)
 
 for file in input:
-    df_log = pd.read_csv('outputs/'+file)
+    df_log = pd.read_csv('logs/'+file)
     game = games[k]
     k += 1
 
@@ -68,4 +68,4 @@ for file in input:
 
 
 df = df[df['Name'] != 0]
-df.to_csv(r'outputs/MH_hunting_table.csv',encoding='utf-8',index=False)
+df.to_csv(r'logs/table.csv',encoding='utf-8',index=False)

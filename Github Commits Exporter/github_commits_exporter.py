@@ -3,7 +3,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-with open('github_user.txt', 'r') as file:
+with open('user.txt', 'r') as file:
     user = file.read()
 
 repos_url = 'https://api.github.com/users/{}/repos?per_page=100'
@@ -33,4 +33,4 @@ for name in repos['name']:
         commits = pd.concat([commits, json])
 
 commits.drop(['verification.signature', 'verification.payload'], axis=1, inplace=True)
-commits.to_csv('outputs/github_commits.csv', index=False)
+commits.to_csv('commits.csv', index=False)

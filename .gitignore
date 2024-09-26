@@ -1,10 +1,19 @@
-# I/O
-inputs
-outputs
-steam_api_key.txt
-github_user.txt
-
-# cache
-__pycache__
 *.dat
+__pycache__
+api_key.txt
+commits.csv
+input.json
+mh4u.csv
+mhgu.csv
+mhrs.csv
+mhwi.csv
+output.csv
+output.xlsx
+raw.csv
 status.csv
+system
+table.csv
+tags_ranking.csv
+user.txt
+user1
+user1.bin

@@ -11,14 +11,14 @@ os.chdir(os.path.dirname(sys.argv[0]))
 
 
 def start():
-    files = os.listdir('inputs')
+    files = os.listdir('stats')
     input = [file for file in files if file.endswith(".json")]
     for file in input:
-        os.rename('inputs/'+str(file), 'inputs/stats_input.json')
+        os.rename('stats/'+str(file), 'stats/input.json')
 
 
 def choose_version():
-    with open(r'inputs/stats_input.json') as data_file:    
+    with open(r'stats/input.json') as data_file:    
         data = json.load(data_file)
         if "DataVersion" in str(data):
             return('above')
@@ -27,13 +27,13 @@ def choose_version():
 
 
 def stats_for_1_13_and_above():
-    with open(r'inputs/stats_input.json') as data_file:    
+    with open(r'stats/input.json') as data_file:    
         data = json.load(data_file)
     df = pd.json_normalize(data)
     df = df.T
     df = df.drop('DataVersion')
-    df.to_csv (r'inputs/stats_raw.csv',header=['values'])
-    df = pd.read_csv (r'inputs/stats_raw.csv')
+    df.to_csv (r'stats/raw.csv',header=['values'])
+    df = pd.read_csv (r'stats/raw.csv')
     df.rename(columns={'Unnamed: 0':'stats'},inplace=True)
 
     # create the necessary dataframes
@@ -85,7 +85,7 @@ def stats_for_1_13_and_above():
     df_entity = df_entity.iloc[2:]
     df_general = df_general.iloc[2:]
 
-    # fuze the various statistics
+    # fuse the various statistics
     df_block = df_block.fillna(0)
     df_block = df_block.groupby(df_block['Item']).aggregate({'Mined':'sum','Broken':'sum','Crafted':'sum','Used':'sum','Picked Up':'sum','Dropped':'sum'})
     df_entity = df_entity.fillna(0)
@@ -109,7 +109,7 @@ def stats_for_1_13_and_above():
     df_general = df_general[['Mod','Statistic','Value']]
     
     # output the excel file
-    writer = pd.ExcelWriter(r'outputs/stats_output.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(r'stats/output.xlsx', engine='xlsxwriter')
     df_general.to_excel(writer, sheet_name='General',index=False)
     df_block.to_excel(writer, sheet_name='Items',index=False)
     df_entity.to_excel(writer, sheet_name='Entities',index=False)
@@ -117,10 +117,10 @@ def stats_for_1_13_and_above():
 
 
 def stats_for_1_12_and_below():
-    df = pd.read_json (r'inputs/stats_input.json',typ='series')
+    df = pd.read_json (r'stats/input.json',typ='series')
     df.to_frame('count')
-    df.to_csv (r'inputs/stats_raw.csv',header=['values'])
-    df = pd.read_csv (r'inputs/stats_raw.csv')
+    df.to_csv (r'stats/raw.csv',header=['values'])
+    df = pd.read_csv (r'stats/raw.csv')
     df.rename(columns={'Unnamed: 0':'stats'},inplace=True)
 
     # create the necessary dataframes
@@ -179,7 +179,7 @@ def stats_for_1_12_and_below():
     df_entity = df_entity.iloc[2:]
     df_general = df_general.iloc[2:]
 
-    # fuze the various statistics
+    # fuse the various statistics
     df_block = df_block.fillna(0)
     df_block = df_block.groupby(df_block['Item']).aggregate({'Mined':'sum','Broken':'sum','Crafted':'sum','Used':'sum','Picked Up':'sum','Dropped':'sum'})
     df_entity = df_entity.fillna(0)
@@ -193,7 +193,7 @@ def stats_for_1_12_and_below():
     df_block = df_block[['Mod','Item','Mined','Broken','Crafted','Used','Picked Up','Dropped']]
     
     # output the excel file
-    writer = pd.ExcelWriter(r'outputs/stats_output.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(r'stats/output.xlsx', engine='xlsxwriter')
     df_general.to_excel(writer, sheet_name='General')
     df_block.to_excel(writer, sheet_name='Items',index=False)
     df_entity.to_excel(writer, sheet_name='Entities')

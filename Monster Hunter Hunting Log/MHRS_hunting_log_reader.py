@@ -54,4 +54,4 @@ for i in range(len(names)):
 df = df[df['Name'] != 0]
 df = df[df['Size'] != 'Unknown']
 
-df.to_csv(r'outputs/MHRS_hunting_log.csv',encoding='utf-8',index=False)
+df.to_csv(r'logs/mhrs.csv',encoding='utf-8',index=False)

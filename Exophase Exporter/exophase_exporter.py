@@ -200,6 +200,6 @@ for k in range(len(df)):
     else:
         df.iloc[k,7] = round(obtained/total*100,2)
 
-df.to_csv(r'outputs/exophase_output.csv',encoding='utf-8',index=False)
+df.to_csv(r'output.csv',encoding='utf-8',index=False)
 
 driver.quit()
