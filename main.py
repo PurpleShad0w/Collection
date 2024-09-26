@@ -22,7 +22,7 @@ with open(save, 'rb') as file:
 
 collectibles = pd.read_csv('collectibles.tsv', sep='\t')
 
-for i in range(0, 52):
+for i in range(0, 61):
     if collectibles['id'][i] in data:
         collectibles['status'][i] = 'Found'
     elif collectibles['id'][i] not in data:

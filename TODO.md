@@ -2,4 +2,6 @@
 
 - [X] Provide list of unobtained cards.
 - [ ] Provide list of unobtained invitations.
-- [ ] Provide locations of collectibles.
+
+
+Providing locations of collectibles is better suited to a guide with visual information, and such a guide already exists on Steam.
