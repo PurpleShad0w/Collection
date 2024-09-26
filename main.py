@@ -21,6 +21,7 @@ with open(save, 'rb') as file:
     data = file.read().decode('ANSI', errors='ignore')
 
 collectibles = pd.read_csv('collectibles.tsv', sep='\t')
+collectibles['status'] = ''
 
 for i in range(0, 61):
     if collectibles['id'][i] in data:
